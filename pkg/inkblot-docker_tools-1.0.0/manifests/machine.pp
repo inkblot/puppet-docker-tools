@@ -24,7 +24,7 @@ class docker_tools::machine (
   }
 
   exec { '/usr/local/bin/docker-machine-version':
-    command     => "mv ${tmp_dir}/${bin_filename} ${target_dir}/docker-machine-${version} ; chmod a+x ${target_dir}/docker-machine-${version}",
+    command     => "mv ${tmp_dir}/${bin_filename} ${target_dir}/docker-machine-${version}",
     subscribe   => Archive["${tmp_dir}/${bin_filename}"],
     path        => ['/bin'],
     refreshonly => true,

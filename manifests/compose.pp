@@ -24,7 +24,7 @@ class docker_tools::compose (
   }
 
   exec { '/usr/local/bin/docker-compose-version':
-    command     => "mv ${tmp_dir}/${bin_filename} ${target_dir}/docker-compose-${version}",
+    command     => "mv ${tmp_dir}/${bin_filename} ${target_dir}/docker-compose-${version} ; chmod a+x ${target_dir}/docker-compose-${version}",
     subscribe   => Archive["${tmp_dir}/${bin_filename}"],
     path        => ['/bin'],
     refreshonly => true,
